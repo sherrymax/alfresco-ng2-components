@@ -19,6 +19,7 @@ import { Util } from '../../../util/util';
 
 import { TaskFiltersCloudComponent } from '../process_cloud/taskFiltersCloudComponent';
 import { TaskListCloudComponent } from '../process_cloud/taskListCloudComponent';
+import { EditTaskFilterCloudComponent } from '../process_cloud/editTaskFilterCloudComponent';
 import { element, by } from 'protractor';
 
 export class TasksCloudDemoPage {
@@ -27,12 +28,18 @@ export class TasksCloudDemoPage {
     completedTasks = element(by.css('span[data-automation-id="completed-tasks-filter"]'));
     activeFilter = element(by.css("mat-list-item[class*='active'] span"));
 
+    editTaskFilterCloud = new EditTaskFilterCloudComponent();
+
     taskFiltersCloudComponent(filter) {
         return new TaskFiltersCloudComponent(filter);
     }
 
     taskListCloudComponent() {
         return new TaskListCloudComponent();
+    }
+
+    editTaskFilterCloudComponent() {
+        return this.editTaskFilterCloud;
     }
 
     myTasksFilter() {
