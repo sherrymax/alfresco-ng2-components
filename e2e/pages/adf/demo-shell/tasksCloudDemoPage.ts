@@ -51,10 +51,10 @@ export class TasksCloudDemoPage {
     }
 
     customTaskFilter(filterName) {
-        return new TaskFiltersCloudComponent(element(by.css(`span[data-automation-id="${filterName}_filter"]`)));
+        return new TaskFiltersCloudComponent(element(by.css(`span[data-automation-id="${filterName}-filter"]`)));
     }
 
-    checkActiveFilterActive () {
+    getActiveFilterName () {
         Util.waitUntilElementIsVisible(this.activeFilter);
         return this.activeFilter.getText();
     }
