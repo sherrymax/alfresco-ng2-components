@@ -206,10 +206,6 @@ export class FilesComponent implements OnInit, OnChanges, OnDestroy {
                 @Optional() private route: ActivatedRoute,
                 public authenticationService: AuthenticationService,
                 public alfrescoApiService: AlfrescoApiService) {
-
-        this.alfrescoApiService.nodeUpdated.subscribe(() => {
-            this.documentList.reload();
-        });
     }
 
     showFile(event) {
