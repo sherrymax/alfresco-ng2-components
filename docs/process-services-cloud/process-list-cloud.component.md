@@ -50,7 +50,6 @@ when the process list is empty:
 
 | Name | Type | Default value | Description |
 | ---- | ---- | ------------- | ----------- |
-| appVersion | `string` | "" | The related application version. |
 | appName | `string` | "" | The name of the application. |
 | businessKey | `string` | "" | Filter the tasks to display only the ones with this businessKey value. |
 | startDate | `string` | "" | Filter the processes. Display only process start on the supplied date. |
