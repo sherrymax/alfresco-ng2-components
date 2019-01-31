@@ -100,7 +100,6 @@ export class SomeComponent implements OnInit {
     filterProperties: string[] = [
         "appName",
         "processInstanceId",
-        "startDate",
         "lastModified"];
 
     onFilterChange(filter: ProcessFilterCloudModel) {
@@ -115,7 +114,7 @@ export class SomeComponent implements OnInit {
 With this configuration, only the four listed properties will be shown.
 
 **Note:** Currently, the `sort` property has a limited set of properties
-to choose from: **_id_**, **_name_**, **_status_** and **_startDate_**.
+to choose from: **_id_**, **_name_**, **_status_**.
 
 ## See also
 

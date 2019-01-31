@@ -5,7 +5,7 @@ Status: Experimental
 Last reviewed: 2018-11-09
 ---
 
-# [Process Instance List Cloud component](../../lib/process-services-cloud/src/lib/process/process-list/components/process-list-cloud.component.ts "Defined in process-list-cloud.component.ts")
+# [Process Instance List Cloud component](../../lib/lib/process-services-cloud/src/lib/process/process-list/components/process-list-cloud.component.ts "Defined in process-list-cloud.component.ts")
 
 Renders a list containing all the process instances matched by the parameters specified.
 
@@ -52,17 +52,17 @@ when the process list is empty:
 | ---- | ---- | ------------- | ----------- |
 | appName | `string` | "" | The name of the application. |
 | businessKey | `string` | "" | Filter the tasks to display only the ones with this businessKey value. |
-| startDate | `string` | "" | Filter the processes. Display only process start on the supplied date. |
-| lastModifiedFrom | `string` | "" | Filter the processes. Display only processes with lastModifiedFrom equal to the supplied date. |
-| lastModifiedTo | `string` | "" | Filter the processes. Display only processes with lastModifiedTo equal to the supplied date. |
 | id | `string` | "" | Filter the processes to display only the ones with this ID. |
 | initiator | `string` | "" | Name of the initiator of the process. |
+| lastModifiedFrom | `string` | "" | Filter the processes. Display only process with lastModifiedTo equal to the supplied date. |
+| lastModifiedTo | `string` | "" | Filter the processes. Display only process with lastModifiedTo equal to the supplied date. |
 | multiselect | `boolean` | false | Toggles multiple row selection and renders checkboxes at the beginning of each row |
 | name | `string` | "" | Filter the processes to display only the ones with this name. |
+| presetColumn | `string` |  | Custom preset column schema in JSON format. |
 | processDefinitionId | `string` | "" | Filter the processes to display only the ones with this process definition ID. |
 | processDefinitionKey | `string` | "" | Filter the processes to display only the ones with this process definition key. |
 | selectionMode | `string` | "single" | Row selection mode. Can be "none", "single" or "multiple". For multiple mode, you can use Cmd (macOS) or Ctrl (Win) modifier key to toggle selection for multiple rows. |
-| sorting | [`ProcessListCloudSortingModel`](../../lib/process-services-cloud/src/lib/process/process-list/models/process-list-sorting.model.ts)`[]` |  | Array of objects specifying the sort order and direction for the list. The sort parameters are for BE sorting. |
+| sorting | [`ProcessListCloudSortingModel`](../../lib/lib/process-services-cloud/src/lib/process/process-list/models/process-list-sorting.model.ts)`[]` |  | Array of objects specifying the sort order and direction for the list. The sort parameters are for BE sorting. |
 | status | `string` | "" | Filter the processes to display only the ones with this status. |
 
 ### Events
