@@ -23,7 +23,11 @@ export class EditTaskFilterCloudComponent {
 
     customiseFilter = element(by.id('adf-edit-task-filter-title-id'));
     selectedOption = element(by.css('mat-option[class*="mat-selected"]'));
-    assignment = element(by.css('input[data-automation-id="adf-cloud-edit-task-property-assignment"]'));
+    assignee = element(by.css('input[data-automation-id="adf-cloud-edit-task-property-assignee"]'));
+    statusBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-status"]');
+    sortBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-sort"]');
+    orderBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-order"]');
+
     saveButton = element(by.css('button[id="adf-save-id"]'));
     saveAsButton = element(by.css('button[id="adf-save-as-id"]'));
     deleteButton = element(by.css('button[id="adf-delete-id"]'));
@@ -92,15 +96,15 @@ export class EditTaskFilterCloudComponent {
     }
 
     setAssignment(option) {
-        Util.waitUntilElementIsVisible(this.assignment);
-        this.assignment.clear();
-        this.assignment.sendKeys(option);
-        this.assignment.sendKeys(protractor.Key.ENTER);
+        Util.waitUntilElementIsVisible(this.assignee);
+        this.assignee.clear();
+        this.assignee.sendKeys(option);
+        this.assignee.sendKeys(protractor.Key.ENTER);
         return this;
     }
 
     getAssignment() {
-        return this.assignment.getText();
+        return this.assignee.getText();
     }
 
     checkSaveButtonIsDisplayed() {
