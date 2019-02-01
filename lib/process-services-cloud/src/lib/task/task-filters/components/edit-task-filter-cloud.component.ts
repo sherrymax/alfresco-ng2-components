@@ -84,11 +84,12 @@ export class EditTaskFilterCloudComponent implements OnChanges {
 
     status = [
         { label: 'ALL', value: '' },
-        { label: 'RUNNING', value: 'RUNNING' },
-        { label: 'SUSPENDED', value: 'SUSPENDED' },
+        { label: 'CREATED', value: 'CREATED' },
         { label: 'CANCELLED', value: 'CANCELLED' },
-        { label: 'DELETED', value: 'DELETED' },
-        { label: 'COMPLETED', value: 'COMPLETED' }
+        { label: 'ASSIGNED', value: 'ASSIGNED' },
+        { label: 'SUSPENDED', value: 'SUSPENDED' },
+        { label: 'COMPLETED', value: 'COMPLETED' },
+        { label: 'DELETED', value: 'DELETED' }
     ];
 
     directions = [
