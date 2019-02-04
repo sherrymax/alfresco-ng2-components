@@ -24,13 +24,9 @@ export class EditTaskFilterCloudComponent {
     customiseFilter = element(by.id('adf-edit-task-filter-title-id'));
     selectedOption = element(by.css('mat-option[class*="mat-selected"]'));
     assignee = element(by.css('input[data-automation-id="adf-cloud-edit-task-property-assignee"]'));
-    statusBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-status"]');
-    sortBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-sort"]');
-    orderBy = by.css('mat-select[data-automation-id="adf-cloud-edit-task-property-order"]');
-
-    saveButton = element(by.css('button[id="adf-save-id"]'));
-    saveAsButton = element(by.css('button[id="adf-save-as-id"]'));
-    deleteButton = element(by.css('button[id="adf-delete-id"]'));
+    saveButton = element(by.css('[data-automation-id="adf-filter-action-save"]'));
+    saveAsButton = element(by.css('[data-automation-id="adf-filter-action-saveAs"]'));
+    deleteButton = element(by.css('[data-automation-id="adf-filter-action-delete"]'));
 
     editTaskFilter = new EditTaskFilterDialog();
 
@@ -44,18 +40,18 @@ export class EditTaskFilterCloudComponent {
         return this;
     }
 
-    setStateFilterDropDown(option) {
-        this.clickOnDropDownArrow('state');
+    setStatusFilterDropDown(option) {
+        this.clickOnDropDownArrow('status');
 
-        let stateElement = element.all(by.cssContainingText('mat-option span', option)).first();
-        Util.waitUntilElementIsClickable(stateElement);
-        Util.waitUntilElementIsVisible(stateElement);
-        stateElement.click();
+        let statusElement = element.all(by.cssContainingText('mat-option span', option)).first();
+        Util.waitUntilElementIsClickable(statusElement);
+        Util.waitUntilElementIsVisible(statusElement);
+        statusElement.click();
         return this;
     }
 
-    getStateFilterDropDownValue() {
-        return element.all(by.css("mat-select[data-automation-id='adf-cloud-edit-task-property-state'] span")).first().getText();
+    getStatusFilterDropDownValue() {
+        return element.all(by.css("mat-select[data-automation-id='adf-cloud-edit-task-property-status'] span")).first().getText();
     }
 
     setSortFilterDropDown(option) {
