@@ -293,7 +293,8 @@
     "SINGLE": "Single Selection",
     "MULTI": "Multiple Selection",
     "PRESELECTED_VALUE": "Preselect: ",
-    "ROLE": "Roles: "
+    "ROLE": "Roles: ",
+    "PRESELECT_VALIDATION": "Preselect validation"
   },
   "ABOUT": {
     "TITLE": "Plugins",

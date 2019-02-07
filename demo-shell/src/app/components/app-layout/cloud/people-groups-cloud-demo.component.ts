@@ -17,7 +17,7 @@
 
 import { Component, ViewEncapsulation } from '@angular/core';
 import { PeopleCloudComponent, GroupCloudComponent, GroupModel } from '@alfresco/adf-process-services-cloud';
-import { MatRadioChange } from '@angular/material';
+import { MatRadioChange, MatCheckboxChange } from '@angular/material';
 
 @Component({
     selector: 'app-people-groups-cloud',
@@ -28,11 +28,12 @@ import { MatRadioChange } from '@angular/material';
 export class PeopleGroupCloudDemoComponent {
 
     DEFAULT_GROUP_PLACEHOLDER: string = `[{"id": "1", "name":"activitiUserGroup"}]`;
-    DEFAULT_PEOPLE_PLACEHOLDER: string = `[{"email": "example@alfresco.com", "firstName":"Administrator", "lastName": "ADF"}]`;
+    DEFAULT_PEOPLE_PLACEHOLDER: string = `[{"id": "1", email": "admin.adf@alfresco.com", "firstName":"Administrator", "lastName": "ADF", "username": "admin.adf"}]`;
 
     peopleMode: string = PeopleCloudComponent.MODE_SINGLE;
     preSelectUsers: string[] = [];
     peopleRoles: string[] = [];
+    peoplePreselectValidation: Boolean = false;
 
     groupMode: string = GroupCloudComponent.MODE_SINGLE;
     preSelectGroup: GroupModel[] = [];
@@ -63,6 +64,11 @@ export class PeopleGroupCloudDemoComponent {
     onChangeGroupsMode(event: MatRadioChange) {
         this.groupMode = event.value;
         this.preSelectGroup = [...this.preSelectGroup];
+    }
+
+    onChangePeopleValidation(event: MatCheckboxChange) {
+        this.peoplePreselectValidation = event.checked;
+        this.preSelectUsers = [...this.preSelectUsers];
     }
 
     isStringArray(str: string) {
@@ -99,6 +105,10 @@ export class PeopleGroupCloudDemoComponent {
         if (this.groupMode === GroupCloudComponent.MODE_MULTIPLE) {
             this.preSelectGroup.push(group);
         }
+    }
+
+    onError(event) {
+        // TODO
     }
 
     get peopleSingleMode() {

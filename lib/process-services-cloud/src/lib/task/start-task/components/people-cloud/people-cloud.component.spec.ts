@@ -294,4 +294,27 @@ describe('PeopleCloudComponent', () => {
             expect(checkUserHasRoleSpy).not.toHaveBeenCalled();
         });
     }));
+
+    it('should not validate preselect values if preselectValidation flag is set to false', () => {
+        component.mode = 'multiple';
+        component.preselectValidation = false;
+        component.preSelectUsers = <any> [{id: mockUsers[1].id}, {id: mockUsers[2].id}];
+        fixture.detectChanges();
+        fixture.whenStable().then( () => {
+            fixture.detectChanges();
+            expect(component.validatePreselectUsers).not.toHaveBeenCalled();
+        });
+    });
+    it('should filter users when validation flag is true', async(() => {
+        component.mode = 'multiple';
+        component.preselectValidation = true;
+        component.preSelectUsers = <any> [{id: mockUsers[1].id}, {id: mockUsers[2].id}];
+        fixture.detectChanges();
+        fixture.whenStable().then( () => {
+            component.filterPreselectUsers().then( (result) => {
+                expect(result[0].valid).toEqual(false);
+            });
+        });
+
+    }));
 });
