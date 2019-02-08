@@ -282,6 +282,7 @@ export class PeopleCloudComponent implements OnInit, OnChanges {
         if (this.preselectValidation) {
             this.validatePreselectUsers().then( (users) => {
                 this.checkPreselectValidationErrors();
+                this.preSelectUsers = [...users];
                 this.selectedUsersSubject.next(users);
             });
         } else {
