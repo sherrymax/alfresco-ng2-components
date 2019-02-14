@@ -16,7 +16,7 @@
  */
 
 import { Util } from '../../../util/util';
-import { DataTablePage } from '../dataTablePage';
+import { DataTableComponentPage } from '../dataTableComponentPage';
 import { element, by } from 'protractor';
 
 export class ProcessListCloudComponent {
@@ -24,7 +24,7 @@ export class ProcessListCloudComponent {
     processList = element(by.css('adf-cloud-process-list'));
     noProcessFound = element.all(by.css("p[class='adf-empty-content__title']")).first();
 
-    dataTable = new DataTablePage(this.processList);
+    dataTable = new DataTableComponentPage(this.processList);
 
     getDataTable() {
         return this.dataTable;

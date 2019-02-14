@@ -17,7 +17,6 @@
 
 import { LoginPage } from '../pages/adf/loginPage';
 import { NavigationBarPage } from '../pages/adf/navigationBarPage';
-import { DocumentListPage } from '../pages/adf/content-services/documentListPage';
 import { ContentServicesPage } from '../pages/adf/contentServicesPage';
 
 import { LockFilePage } from '../pages/adf/lockFilePage';
@@ -38,7 +37,6 @@ describe('Lock File', () => {
 
     const loginPage = new LoginPage();
     const navigationBarPage = new NavigationBarPage();
-    const contentList = new DocumentListPage();
     const lockFilePage = new LockFilePage();
     const contentServices = new ContentServicesPage();
 
@@ -106,7 +104,9 @@ describe('Lock File', () => {
 
             loginPage.loginToContentServicesUsingUserModel(adminUser);
 
-            navigationBarPage.openContentServicesFolder(documentLibrary);
+            await navigationBarPage.openContentServicesFolder(documentLibrary);
+
+            contentServices.waitForTableBody();
 
             done();
         });
@@ -130,6 +130,7 @@ describe('Lock File', () => {
         });
 
         it('[C286604] Should be able to open Lock file option by clicking the lock image', () => {
+            // browser.driver.sleep(10000000);
             contentServices.lockContent(pngFileModel.name);
 
             lockFilePage.checkLockFileCheckboxIsDisplayed();
@@ -346,7 +347,7 @@ describe('Lock File', () => {
             lockFilePage.clickSaveButton();
 
             contentServices.deleteContentWithRoot(pngFileToBeLocked.entry.name);
-            contentList.dataTablePage().checkContentIsNotDisplayed(pngFileToBeLocked.entry.name);
+            contentServices.checkContentIsNotDisplayed(pngFileToBeLocked.entry.name);
         });
 
     });

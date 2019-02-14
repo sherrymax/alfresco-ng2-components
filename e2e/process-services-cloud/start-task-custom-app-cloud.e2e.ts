@@ -68,7 +68,7 @@ describe('Start Task', () => {
                  .addDueDate('12/12/2018');
         startTask.checkStartButtonIsEnabled();
         startTask.clickCancelButton();
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsNotDisplayed(standaloneTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsNotDisplayed('Name', standaloneTaskName);
     });
 
     it('[C290180] Should be able to create a new standalone task', () => {
@@ -78,7 +78,7 @@ describe('Start Task', () => {
                  .addDueDate('12/12/2018')
                  .addPriority('50')
                  .clickStartButton();
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed(standaloneTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed('Name', standaloneTaskName);
     });
 
     it('[C290181] Should be displayed an error message if task name exceed 255 characters', () => {
@@ -110,7 +110,7 @@ describe('Start Task', () => {
                  .clickStartButton();
         tasksCloudDemoPage.myTasksFilter().clickTaskFilter();
         expect(tasksCloudDemoPage.getActiveFilterName()).toBe('My Tasks');
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsNotDisplayed(standaloneTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsNotDisplayed('Name', standaloneTaskName);
     });
 
     it('[C291953] Assignee field should display the logged user as default', () => {
@@ -128,7 +128,7 @@ describe('Start Task', () => {
             .clickCustomiseFilterHeader()
             .setStateFilterDropDown('CREATED')
             .clearAssignment();
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed(unassignedTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed('Name', unassignedTaskName);
     });
 
     it('[C297675] Should create a task unassigned when assignee field is empty in Start Task form', () => {
@@ -142,9 +142,9 @@ describe('Start Task', () => {
             .setStateFilterDropDown('CREATED')
             .clearAssignment();
         tasksCloudDemoPage.taskListCloudComponent().getDataTable().waitForTableBody();
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed(unassignedTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().checkContentIsDisplayed('Name', unassignedTaskName);
         let taskId = tasksCloudDemoPage.taskListCloudComponent().getIdCellValue(unassignedTaskName);
-        tasksCloudDemoPage.taskListCloudComponent().getDataTable().selectRowByContentName(unassignedTaskName);
+        tasksCloudDemoPage.taskListCloudComponent().getDataTable().selectRow('Name', unassignedTaskName);
         expect(taskDetailsPage.getTaskDetailsHeader()).toContain(taskId);
         expect(taskDetailsPage.getPropertyLabel('assignee')).toBe('Assignee');
         expect(taskDetailsPage.getPropertyValue('assignee')).toBe('No assignee');

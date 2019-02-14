@@ -18,7 +18,7 @@
 import { element, by } from 'protractor';
 
 import { Util } from '../../util/util';
-import { DataTablePage } from './dataTablePage';
+import { DataTableComponentPage } from './dataTableComponentPage';
 
 let column = {
     role: 'Role'
@@ -107,11 +107,11 @@ export class PermissionsPage {
     }
 
     checkPermissionsDatatableIsDisplayed() {
-        return new DataTablePage(element(by.css('[class*="adf-datatable-permission"]')));
+        return new DataTableComponentPage(element(by.css('[class*="adf-datatable-permission"]')));
     }
 
     getRoleCellValue(rowName) {
-        let locator = new DataTablePage().getCellByNameAndColumn(rowName, column.role);
+        let locator = new DataTableComponentPage().getCellByRowAndColumn('Authority ID', rowName, column.role);
         Util.waitUntilElementIsVisible(locator);
         return locator.getText();
     }

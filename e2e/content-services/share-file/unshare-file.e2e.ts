@@ -118,7 +118,7 @@ describe('Unshare file', () => {
         });
 
         it('[C286550] Should display unshare confirmation dialog', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickUnShareFile();
@@ -126,7 +126,7 @@ describe('Unshare file', () => {
         });
 
         it('[C286551] Should be able to cancel unshare action', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickUnShareFile();
@@ -136,7 +136,7 @@ describe('Unshare file', () => {
         });
 
         it('[C286552] Should be able to confirm unshare action', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickUnShareFile();
@@ -146,7 +146,7 @@ describe('Unshare file', () => {
         });
 
         it('[C280556] Should redirect to 404 when trying to access an unshared file', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             let sharedLink = await shareDialog.getShareLink();
@@ -169,7 +169,7 @@ describe('Unshare file', () => {
         it('[C286555] Should NOT be able to unshare file without permission', () => {
             navBar.goToSite(testSite);
             contentListPage.navigateToFolder('documentLibrary');
-            contentListPage.dataTablePage().clickRowToSelect(nodeBody.name);
+            contentListPage.dataTablePage().selectRow('Display name', nodeBody.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.shareToggleButtonIsChecked();

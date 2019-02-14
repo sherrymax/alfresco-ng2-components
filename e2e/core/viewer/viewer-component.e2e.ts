@@ -433,7 +433,7 @@ xdescribe('Viewer', () => {
         it('[C260106] Should be able to open a Word file shared via API', () => {
             contentServicesPage.navigateToDocumentList();
 
-            contentList.dataTablePage().clickRowToSelect(wordFileInfo.name);
+            contentList.dataTablePage().selectRow('Display name', wordFileInfo.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickShareLinkButton();

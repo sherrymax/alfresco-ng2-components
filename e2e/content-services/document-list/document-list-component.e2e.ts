@@ -493,11 +493,11 @@ describe('Document List Component', () => {
         });
 
         it('[C260108] Should display tooltip for file\'s name', () => {
-            expect(contentServicesPage.getContentList().dataTablePage().getTooltip(pdfFile.name)).toEqual(pdfFile.name);
+            expect(contentServicesPage.getContentList().dataTablePage().getTooltip('Display name', pdfFile.name)).toEqual(pdfFile.name);
         });
 
         it('[C260109] Should display tooltip for folder\'s name', () => {
-            expect(contentServicesPage.getContentList().dataTablePage().getTooltip(folderName)).toEqual(folderName);
+            expect(contentServicesPage.getContentList().dataTablePage().getTooltip('Display name', folderName)).toEqual(folderName);
         });
 
         it('[C260119] Should have a specific thumbnail for folders', async (done) => {

@@ -34,8 +34,7 @@ describe('Permissions Component', function () {
     let contentServicesPage = new ContentServicesPage();
     let permissionsPage = new PermissionsPage();
     let uploadActions = new UploadActions();
-    let contentList = new DocumentList();
-    let dataTablePage = new DataTablePage();
+    let contentList = new DocumentListPage();
     let fileOwnerUser, filePermissionUser, file;
 
     let fileModel = new FileModel({
@@ -93,8 +92,8 @@ describe('Permissions Component', function () {
             loginPage.loginToContentServicesUsingUserModel(fileOwnerUser);
             contentServicesPage.goToDocumentList();
 
-            contentList.dataTablePage().checkContentIsDisplayed(fileModel.name);
-            contentList.dataTablePage().rightClickOnRowNamed(fileModel.name);
+            contentList.dataTablePage().checkContentIsDisplayed('Display name', fileModel.name);
+            contentList.dataTablePage().rightClickOnRow('Display name', fileModel.name);
             contentList.pressContextMenuActionNamed('Permission');
 
             done();
@@ -148,8 +147,8 @@ describe('Permissions Component', function () {
             loginPage.loginToContentServicesUsingUserModel(fileOwnerUser);
             contentServicesPage.goToDocumentList();
 
-            contentList.checkContentIsDisplayed(fileModel.name);
-            contentList.rightClickOnRowNamed(fileModel.name);
+            contentList.dataTablePage().checkContentIsDisplayed('Display name', fileModel.name);
+            contentList.dataTablePage().rightClickOnRow('Display name', fileModel.name);
             contentList.pressContextMenuActionNamed('Permission');
             permissionsPage.checkAddPermissionButtonIsDisplayed();
             permissionsPage.clickAddPermissionButton();

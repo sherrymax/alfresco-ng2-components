@@ -99,7 +99,7 @@ describe('Start Task - Custom App', () => {
             .then(() => {
                 taskPage
                     .tasksListPage()
-                    .getDataTable().checkContentIsDisplayed(tasks[0]);
+                    .getDataTable().checkContentIsDisplayed('Name', tasks[0]);
 
                 taskPage
                     .taskDetails()
@@ -150,7 +150,7 @@ describe('Start Task - Custom App', () => {
 
         taskPage
             .tasksListPage()
-            .getDataTable().checkContentIsDisplayed(tasks[2]);
+            .getDataTable().checkContentIsDisplayed('Name', tasks[2]);
 
         taskPage
             .formFields()
@@ -176,7 +176,7 @@ describe('Start Task - Custom App', () => {
             .clickCancelButton();
 
         taskPage.tasksListPage()
-            .getDataTable().checkContentIsNotDisplayed(tasks[3]);
+            .getDataTable().checkContentIsNotDisplayed('Name', tasks[3]);
 
         expect(taskPage.filtersPage().getActiveFilter()).toEqual(CONSTANTS.TASK_FILTERS.MY_TASKS);
     });
@@ -193,7 +193,7 @@ describe('Start Task - Custom App', () => {
 
         taskPage
             .tasksListPage()
-            .getDataTable().checkContentIsDisplayed(tasks[4]);
+            .getDataTable().checkContentIsDisplayed('Name', tasks[4]);
 
         expect(taskPage.formFields()
             .setFieldValue(by.id, formTextField, formFieldValue)
@@ -206,7 +206,7 @@ describe('Start Task - Custom App', () => {
 
         taskPage
             .tasksListPage()
-            .getDataTable().checkContentIsDisplayed(tasks[4]);
+            .getDataTable().checkContentIsDisplayed('Name', tasks[4]);
 
         taskPage
             .formFields()
@@ -244,8 +244,8 @@ describe('Start Task - Custom App', () => {
             .goToFilter(CONSTANTS.TASK_FILTERS.INV_TASKS);
 
         taskPage.tasksListPage()
-            .getDataTable().checkContentIsDisplayed(tasks[5])
-            .selectRowByContentName(tasks[5]);
+            .getDataTable().checkContentIsDisplayed('Name', tasks[5])
+            .selectRow('Name', tasks[5]);
 
         taskPage.checkTaskTitle(tasks[5]);
 
@@ -268,7 +268,7 @@ describe('Start Task - Custom App', () => {
         navigationBarPage.navigateToProcessServicesPage().goToApp(appModel.name).clickTasksButton();
         taskPage.filtersPage().goToFilter(CONSTANTS.TASK_FILTERS.MY_TASKS);
         taskPage.createNewTask().addName(showHeaderTask).clickStartButton();
-        taskPage.tasksListPage().getDataTable().checkContentIsDisplayed(showHeaderTask);
+        taskPage.tasksListPage().getDataTable().checkContentIsDisplayed('Name', showHeaderTask);
 
         appNavigationBarPage.clickSettingsButton();
         taskPage.taskDetails().appSettingsToggles().disableShowHeader();

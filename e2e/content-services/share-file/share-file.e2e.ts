@@ -90,13 +90,17 @@ describe('Share file', () => {
 
             contentServicesPage.waitForTableBody();
 
-            contentListPage.clickRowToSelectWithRoot(pngFileModel.name);
+            done();
+        });
 
+        afterEach(async (done) => {
+            await browser.refresh();
+            contentServicesPage.waitForTableBody();
             done();
         });
 
         it('[C286549] Should check automatically toggle button in Share dialog', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.shareToggleButtonIsChecked();
@@ -105,7 +109,7 @@ describe('Share file', () => {
         });
 
         it('[C286544] Should display notification when clicking URL copy button', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickShareLinkButton();
@@ -118,7 +122,7 @@ describe('Share file', () => {
         });
 
         it('[C286543] Should be possible to close Share dialog', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.checkShareLinkIsDisplayed();
@@ -127,7 +131,7 @@ describe('Share file', () => {
         });
 
         it('[C286578] Should disable today option in expiration day calendar', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickDateTimePickerButton();
@@ -135,7 +139,7 @@ describe('Share file', () => {
         });
 
         it('[C286548] Should be possible to set expiry date for link', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickDateTimePickerButton();
@@ -154,6 +158,7 @@ describe('Share file', () => {
         });
 
         it('[C286578] Should disable today option in expiration day calendar', () => {
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickDateTimePickerButton();
@@ -180,7 +185,7 @@ describe('Share file', () => {
         });
 
         it('[C286565] Should open file when logged user access shared link', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickShareLinkButton();
@@ -191,7 +196,7 @@ describe('Share file', () => {
         });
 
         it('[C287803] Should the URL be kept the same when opening the share dialog multiple times', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.clickShareLinkButton();
@@ -209,7 +214,7 @@ describe('Share file', () => {
         });
 
         it('[C286539] Should open file when non-logged user access shared link', async () => {
-            contentListPage.dataTablePage().clickRowToSelect(pngFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pngFileModel.name);
             contentServicesPage.clickShareButton();
             shareDialog.checkDialogIsDisplayed();
             shareDialog.checkShareLinkIsDisplayed();

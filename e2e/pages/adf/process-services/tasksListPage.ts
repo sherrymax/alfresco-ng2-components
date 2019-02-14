@@ -16,14 +16,14 @@
  */
 
 import { Util } from '../../../util/util';
-import { DataTablePage } from '../dataTablePage';
+import { DataTableComponentPage } from '../dataTableComponentPage';
 import { by, element } from 'protractor';
 
 export class TasksListPage {
 
     taskList = element(by.css('adf-tasklist'));
     noTasksFound = element.all(by.css("p[class='adf-empty-content__title']")).first();
-    dataTable = new DataTablePage(this.taskList);
+    dataTable = new DataTableComponentPage(this.taskList);
 
     getDataTable() {
         return this.dataTable;

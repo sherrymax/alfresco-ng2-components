@@ -1,6 +1,6 @@
 /*!
  * @license
- * Copyright 2016 Alfresco Software, Ltd.
+ * Copyright 2019 Alfresco Software, Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  */
 
 import { by, element, ElementFinder, browser } from 'protractor';
-import { DataTablePage } from '../dataTablePage';
+import { DataTableComponentPage } from '../dataTableComponentPage';
 import { Util } from '../../../util/util';
 
 export class DocumentListPage {
@@ -24,39 +24,32 @@ export class DocumentListPage {
     rootElement: ElementFinder;
     actionMenu = element(by.css('div[role="menu"]'));
     optionButton = by.css('button[data-automation-id*="action_menu_"]');
-    dataTable = new DataTablePage(this.rootElement);
+    dataTable;
 
+    // constructor(rootElement: ElementFinder = element.all(by.css('adf-document-list[data-automation-id="document-list"]')).first()) {
     constructor(rootElement: ElementFinder = element.all(by.css('adf-upload-drag-area adf-document-list')).first()) {
         this.rootElement = rootElement;
+        this.dataTable = new DataTableComponentPage(this.rootElement);
     }
 
-    clickRowToSelectWithRoot(rowName) {
-        return this.dataTable.clickRowToSelectWithRoot(rowName);
-    }
-
-    clickOnActionMenuWithRoot(content) {
-        this.dataTable.getRowByRowNameWithRoot(content).element(this.optionButton).click();
+    clickOnActionMenu(content) {
+        let row = this.dataTable.getRowParentElement('Display name', content);
+        row.element(this.optionButton).click();
         Util.waitUntilElementIsVisible(this.actionMenu);
         browser.sleep(500);
         return this;
     }
 
     dataTablePage() {
-        return new DataTablePage(this.rootElement);
+        return new DataTableComponentPage(this.rootElement);
     }
 
     getAllRowsNameColumn() {
         return this.dataTable.getAllRowsColumnValues('Display name');
     }
 
-    clickOnActionMenu(content) {
-        this.dataTable.getRowByRowName(content).element(this.optionButton).click();
-        Util.waitUntilElementIsVisible(this.actionMenu);
-        return this;
-    }
-
     navigateToFolder(folder) {
-        this.dataTable.doubleClickRow(folder);
+        this.dataTable.doubleClickRow('Display name', folder);
         return this;
     }
 

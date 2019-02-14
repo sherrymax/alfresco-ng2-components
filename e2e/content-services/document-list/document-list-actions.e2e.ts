@@ -88,7 +88,7 @@ describe('Document List Component - Actions', () => {
         it('[C213257] Should be able to copy a file', () => {
             browser.driver.sleep(15000);
 
-            contentListPage.dataTablePage().rightClickOnRowNamed(pdfUploadedNode.entry.name);
+            contentListPage.dataTablePage().rightClickOnRow('Display name', pdfUploadedNode.entry.name);
             contentListPage.pressContextMenuActionNamed('Copy');
             contentServicesPage.typeIntoNodeSelectorSearchField(folderName);
             contentServicesPage.clickContentNodeSelectorResult(folderName);
@@ -100,27 +100,27 @@ describe('Document List Component - Actions', () => {
 
         it('[C280561] Should be able to delete a file via dropdown menu', () => {
             contentServicesPage.deleteContent(pdfFileModel.name);
-            contentListPage.dataTablePage().checkContentIsNotDisplayed(pdfFileModel.name);
+            contentServicesPage.checkContentIsNotDisplayed(pdfFileModel.name);
             pdfUploadedNode = null;
         });
 
         it('[C280562] Should be able to delete multiple files via dropdown menu', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pdfFileModel.name);
-            contentListPage.dataTablePage().clickRowToSelect(testFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pdfFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', testFileModel.name);
             contentServicesPage.deleteContent(pdfFileModel.name);
-            contentListPage.dataTablePage().checkContentIsNotDisplayed(pdfFileModel.name);
-            contentListPage.dataTablePage().checkContentIsDisplayed(testFileModel.name);
+            contentServicesPage.checkContentIsNotDisplayed(pdfFileModel.name);
+            contentServicesPage.checkContentIsDisplayed(testFileModel.name);
         });
 
         it('[C280565] Should be able to delete a file using context menu', () => {
-            contentListPage.dataTablePage().rightClickOnRowNamed(pdfFileModel.name);
+            contentListPage.dataTablePage().rightClickOnRow('Display name', pdfFileModel.name);
             contentListPage.pressContextMenuActionNamed('Delete');
-            contentListPage.dataTablePage().checkContentIsNotDisplayed(pdfFileModel.name);
+            contentServicesPage.checkContentIsNotDisplayed(pdfFileModel.name);
             pdfUploadedNode = null;
         });
 
         it('[C280566] Should be able to open context menu with right click', () => {
-            contentListPage.dataTablePage().rightClickOnRowNamed(pdfFileModel.name);
+            contentListPage.dataTablePage().rightClickOnRow('Display name', pdfFileModel.name);
             contentListPage.checkContextActionIsVisible('Download');
             contentListPage.checkContextActionIsVisible('Copy');
             contentListPage.checkContextActionIsVisible('Move');
@@ -132,12 +132,12 @@ describe('Document List Component - Actions', () => {
         });
 
         it('[C280567] Should be able to delete multiple files using context menu', () => {
-            contentListPage.dataTablePage().clickRowToSelect(pdfFileModel.name);
-            contentListPage.dataTablePage().clickRowToSelect(testFileModel.name);
-            contentListPage.dataTablePage().rightClickOnRowNamed(pdfFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', pdfFileModel.name);
+            contentListPage.dataTablePage().selectRow('Display name', testFileModel.name);
+            contentListPage.dataTablePage().rightClickOnRow('Display name', pdfFileModel.name);
             contentListPage.pressContextMenuActionNamed('Delete');
-            contentListPage.dataTablePage().checkContentIsNotDisplayed(pdfFileModel.name);
-            contentListPage.dataTablePage().checkContentIsDisplayed(testFileModel.name);
+            contentServicesPage.checkContentIsNotDisplayed(pdfFileModel.name);
+            contentServicesPage.checkContentIsDisplayed(testFileModel.name);
         });
 
     });
@@ -174,12 +174,12 @@ describe('Document List Component - Actions', () => {
 
         it('[C260123] Should be able to delete a folder using context menu', () => {
             contentServicesPage.deleteContent(folderName);
-            contentListPage.dataTablePage().checkContentIsNotDisplayed(folderName);
+            contentServicesPage.checkContentIsNotDisplayed(folderName);
             uploadedFolder = null;
         });
 
         it('[C280568] Should be able to open context menu with right click', () => {
-            contentListPage.dataTablePage().rightClickOnRowNamed(folderName);
+            contentListPage.dataTablePage().rightClickOnRow('Display name', folderName);
             contentListPage.checkContextActionIsVisible('Download');
             contentListPage.checkContextActionIsVisible('Copy');
             contentListPage.checkContextActionIsVisible('Move');

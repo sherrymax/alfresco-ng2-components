@@ -76,7 +76,7 @@ describe('Process list cloud', () => {
             processCloudDemoPage.runningProcessesFilter().clickProcessFilter();
             expect(processCloudDemoPage.getActiveFilterName()).toBe('Running Processes');
             processCloudDemoPage.processListCloudComponent().checkProcessListIsLoaded();
-            processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed(runningProcess.entry.id);
+            processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed('Id', runningProcess.entry.id);
             done();
         });
 

@@ -99,7 +99,7 @@ describe('Start Process', () => {
 
         processCloudDemoPage.runningProcessesFilter().clickProcessFilter();
         expect(processCloudDemoPage.getActiveFilterName()).toBe('Running Processes');
-        processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed(processName);
+        processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed('Name', processName);
 
     });
 
@@ -122,7 +122,7 @@ describe('Start Process', () => {
 
         processCloudDemoPage.runningProcessesFilter().clickProcessFilter();
         expect(processCloudDemoPage.getActiveFilterName()).toBe('Running Processes');
-        processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed(processName);
+        processCloudDemoPage.processListCloudComponent().getDataTable().checkContentIsDisplayed('Name', processName);
 
     });
 

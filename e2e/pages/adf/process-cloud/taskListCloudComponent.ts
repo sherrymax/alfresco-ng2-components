@@ -16,7 +16,7 @@
  */
 
 import { Util } from '../../../util/util';
-import { DataTablePage } from '../dataTablePage';
+import { DataTableComponentPage } from '../dataTableComponentPage';
 import { element, by } from 'protractor';
 
 let column = {
@@ -28,7 +28,7 @@ export class TaskListCloudComponent {
     taskList = element(by.css('adf-cloud-task-list'));
     noTasksFound = element.all(by.css("p[class='adf-empty-content__title']")).first();
 
-    dataTable = new DataTablePage(this.taskList);
+    dataTable = new DataTableComponentPage(this.taskList);
 
     getDataTable() {
         return this.dataTable;
@@ -53,7 +53,7 @@ export class TaskListCloudComponent {
     }
 
     getIdCellValue(rowName) {
-        let locator = new DataTablePage().getCellByNameAndColumn(rowName, column.id);
+        let locator = new DataTableComponentPage().getCellByRowAndColumn('Name', rowName, column.id);
         Util.waitUntilElementIsVisible(locator);
         return locator.getText();
     }
