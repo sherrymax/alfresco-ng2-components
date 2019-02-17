@@ -21,22 +21,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ProcessFiltersCloudComponent } from './components/process-filters-cloud.component';
 import { MaterialModule } from '../../material.module';
-import { LogService, StorageService, CoreModule } from '@alfresco/adf-core';
+import { LogService, StorageService } from '@alfresco/adf-core';
 import { ProcessFilterCloudService } from './services/process-filter-cloud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EditProcessFilterCloudComponent } from './components/edit-process-filter-cloud.component';
 import { ProcessFilterDialogCloudComponent } from './components/process-filter-dialog-cloud.component';
 import { AppListCloudModule } from './../../app/app-list-cloud.module';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
     imports: [
+        TranslateModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         CommonModule,
         FlexLayoutModule,
         MaterialModule,
-        AppListCloudModule,
-        CoreModule.forChild()
+        AppListCloudModule
 
     ],
     declarations: [ProcessFiltersCloudComponent, EditProcessFilterCloudComponent, ProcessFilterDialogCloudComponent],

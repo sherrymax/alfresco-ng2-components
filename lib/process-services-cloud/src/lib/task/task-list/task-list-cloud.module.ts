@@ -19,16 +19,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
 import { TaskListCloudComponent } from './components/task-list-cloud.component';
-import { DataTableModule, TemplateModule, CoreModule } from '@alfresco/adf-core';
+import { DataTableModule, TemplateModule } from '@alfresco/adf-core';
 import { TaskListCloudService } from './services/task-list-cloud.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
+        TranslateModule,
         CommonModule,
         MaterialModule,
         DataTableModule,
-        TemplateModule,
-        CoreModule.forChild()
+        TemplateModule
     ],
     declarations: [TaskListCloudComponent],
     exports: [TaskListCloudComponent],

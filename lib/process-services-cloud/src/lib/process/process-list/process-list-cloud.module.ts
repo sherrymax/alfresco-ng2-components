@@ -19,16 +19,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProcessListCloudComponent } from './components/process-list-cloud.component';
 import { MaterialModule } from '../../material.module';
-import { DataTableModule, TemplateModule, CoreModule } from '@alfresco/adf-core';
+import { DataTableModule, TemplateModule } from '@alfresco/adf-core';
 import { ProcessListCloudService } from './services/process-list-cloud.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
+        TranslateModule,
         CommonModule,
         MaterialModule,
         DataTableModule,
-        TemplateModule,
-        CoreModule.forChild()
+        TemplateModule
 
     ],
     declarations: [ProcessListCloudComponent],

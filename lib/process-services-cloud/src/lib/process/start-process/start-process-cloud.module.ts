@@ -22,15 +22,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '../../material.module';
 import { StartProcessCloudComponent } from './components/start-process-cloud.component';
 import { StartProcessCloudService } from './services/start-process-cloud.service';
-import { CoreModule } from '@alfresco/adf-core';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
     imports: [
+        TranslateModule,
         FormsModule,
         CommonModule,
         MaterialModule,
         FlexLayoutModule,
-        ReactiveFormsModule,
-        CoreModule.forChild()
+        ReactiveFormsModule
     ],
     declarations: [
         StartProcessCloudComponent

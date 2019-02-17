@@ -21,23 +21,24 @@ import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TaskFiltersCloudComponent } from './components/task-filters-cloud.component';
 import { MaterialModule } from '../../material.module';
-import { LogService, StorageService, CoreModule } from '@alfresco/adf-core';
+import { LogService, StorageService } from '@alfresco/adf-core';
 import { TaskFilterCloudService } from './services/task-filter-cloud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EditTaskFilterCloudComponent } from './components/edit-task-filter-cloud.component';
 import { TaskFilterDialogCloudComponent } from './components/task-filter-dialog-cloud.component';
 import { AppListCloudModule } from './../../app/app-list-cloud.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
+        TranslateModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
         CommonModule,
         FlexLayoutModule,
         MaterialModule,
-        AppListCloudModule,
-        CoreModule.forChild()
+        AppListCloudModule
     ],
     declarations: [TaskFiltersCloudComponent, EditTaskFilterCloudComponent, TaskFilterDialogCloudComponent],
     exports: [TaskFiltersCloudComponent, EditTaskFilterCloudComponent],

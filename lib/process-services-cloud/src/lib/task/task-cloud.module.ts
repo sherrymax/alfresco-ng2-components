@@ -20,9 +20,11 @@ import { TaskListCloudModule } from './task-list/task-list-cloud.module';
 import { TaskFiltersCloudModule } from './task-filters/task-filters-cloud.module';
 import { StartTaskCloudModule } from './start-task/start-task-cloud.module';
 import { TaskHeaderCloudModule } from './task-header/task-header-cloud.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
+        TranslateModule,
         TaskListCloudModule,
         TaskFiltersCloudModule,
         StartTaskCloudModule,

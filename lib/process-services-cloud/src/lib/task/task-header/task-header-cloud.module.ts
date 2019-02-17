@@ -18,18 +18,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material.module';
-import { DataTableModule, TemplateModule, CardViewModule, CoreModule } from '@alfresco/adf-core';
+import { DataTableModule, TemplateModule, CardViewModule } from '@alfresco/adf-core';
 import { TaskHeaderCloudComponent } from './components/task-header-cloud.component';
 import { TaskHeaderCloudService } from './services/task-header-cloud.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     imports: [
+        TranslateModule,
         CommonModule,
         MaterialModule,
         DataTableModule,
         TemplateModule,
-        CardViewModule,
-        CoreModule.forChild()
+        CardViewModule
     ],
     declarations: [
         TaskHeaderCloudComponent
