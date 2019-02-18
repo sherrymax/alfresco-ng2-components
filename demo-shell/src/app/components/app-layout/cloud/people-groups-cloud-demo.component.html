@@ -24,8 +24,8 @@
                 'PEOPLE_GROUPS_CLOUD.PRESELECT_VALIDATION' | translate }}</mat-checkbox>
         </div>
         <div>
-            <adf-cloud-people [preSelectUsers]="preSelectUsers" [preselectValidation]="peoplePreselectValidation"
-                [roles]="peopleRoles" [mode]="peopleMode" (error)="onError($event)"></adf-cloud-people>
+            <adf-cloud-people [preSelectUsers]="preSelectUsers" [validate]="peoplePreselectValidation"
+                [roles]="peopleRoles" [mode]="peopleMode"></adf-cloud-people>
         </div>
 
         <div class="adf-people-list" *ngIf="canShowPeopleList()">

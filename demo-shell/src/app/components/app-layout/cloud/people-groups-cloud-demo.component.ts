@@ -107,10 +107,6 @@ export class PeopleGroupCloudDemoComponent {
         }
     }
 
-    onError(event) {
-        // TODO
-    }
-
     get peopleSingleMode() {
         return PeopleCloudComponent.MODE_SINGLE;
     }
