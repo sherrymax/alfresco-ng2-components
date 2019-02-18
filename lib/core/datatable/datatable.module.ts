@@ -40,6 +40,7 @@ import { NoPermissionTemplateDirective } from './directives/no-permission-templa
 import { CustomEmptyContentTemplateDirective } from './directives/custom-empty-content-template.directive';
 import { CustomLoadingContentTemplateDirective } from './directives/custom-loading-template.directive';
 import { CustomNoPermissionTemplateDirective } from './directives/custom-no-permission-template.directive';
+import { UploadDirective } from '../directives/upload.directive';
 
 @NgModule({
     imports: [
@@ -48,10 +49,10 @@ import { CustomNoPermissionTemplateDirective } from './directives/custom-no-perm
         CommonModule,
         TranslateModule.forChild(),
         ContextMenuModule,
-        PipeModule,
-        DirectiveModule
+        PipeModule
     ],
     declarations: [
+        UploadDirective,
         DataTableComponent,
         EmptyListComponent,
         EmptyListHeaderDirective,
@@ -69,6 +70,7 @@ import { CustomNoPermissionTemplateDirective } from './directives/custom-no-perm
         CustomNoPermissionTemplateDirective
     ],
     exports: [
+        UploadDirective,
         DataTableComponent,
         EmptyListComponent,
         EmptyListHeaderDirective,
