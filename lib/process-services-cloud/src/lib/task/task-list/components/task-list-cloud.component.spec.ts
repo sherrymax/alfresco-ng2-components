@@ -133,26 +133,26 @@ describe('TaskListCloudComponent', () => {
             expect(component.rows).toBeDefined();
             expect(component.isListEmpty()).not.toBeTruthy();
             expect(component.rows.length).toEqual(1);
-            expect(component.rows[0].entry['appName']).toBe('test-ciprian2');
-            expect(component.rows[0].entry['appVersion']).toBe('');
-            expect(component.rows[0].entry['id']).toBe('11fe013d-c263-11e8-b75b-0a5864600540');
-            expect(component.rows[0].entry['assignee']).toBeNull();
-            expect(component.rows[0].entry['name']).toEqual('standalone-subtask');
-            expect(component.rows[0].entry['description']).toBeNull();
-            expect(component.rows[0].entry['createdDate']).toBe(1538059139420);
-            expect(component.rows[0].entry['dueDate']).toBeNull();
-            expect(component.rows[0].entry['claimedDate']).toBeNull();
-            expect(component.rows[0].entry['priority']).toBe(0);
-            expect(component.rows[0].entry['category']).toBeNull();
-            expect(component.rows[0].entry['processDefinitionId']).toBeNull();
-            expect(component.rows[0].entry['processInstanceId']).toBeNull();
-            expect(component.rows[0].entry['status']).toBe('CREATED');
-            expect(component.rows[0].entry['owner']).toBe('devopsuser');
-            expect(component.rows[0].entry['parentTaskId']).toBe('71fda20b-c25b-11e8-b75b-0a5864600540');
-            expect(component.rows[0].entry['lastModified']).toBe(1538059139420);
-            expect(component.rows[0].entry['lastModifiedTo']).toBeNull();
-            expect(component.rows[0].entry['lastModifiedFrom']).toBeNull();
-            expect(component.rows[0].entry['standAlone']).toBeTruthy();
+            expect(component.rows[0]['appName']).toBe('test-ciprian2');
+            expect(component.rows[0]['appVersion']).toBe('');
+            expect(component.rows[0]['id']).toBe('11fe013d-c263-11e8-b75b-0a5864600540');
+            expect(component.rows[0]['assignee']).toBeNull();
+            expect(component.rows[0]['name']).toEqual('standalone-subtask');
+            expect(component.rows[0]['description']).toBeNull();
+            expect(component.rows[0]['createdDate']).toBe(1538059139420);
+            expect(component.rows[0]['dueDate']).toBeNull();
+            expect(component.rows[0]['claimedDate']).toBeNull();
+            expect(component.rows[0]['priority']).toBe(0);
+            expect(component.rows[0]['category']).toBeNull();
+            expect(component.rows[0]['processDefinitionId']).toBeNull();
+            expect(component.rows[0]['processInstanceId']).toBeNull();
+            expect(component.rows[0]['status']).toBe('CREATED');
+            expect(component.rows[0]['owner']).toBe('devopsuser');
+            expect(component.rows[0]['parentTaskId']).toBe('71fda20b-c25b-11e8-b75b-0a5864600540');
+            expect(component.rows[0]['lastModified']).toBe(1538059139420);
+            expect(component.rows[0]['lastModifiedTo']).toBeNull();
+            expect(component.rows[0]['lastModifiedFrom']).toBeNull();
+            expect(component.rows[0]['standAlone']).toBeTruthy();
             done();
         });
         component.appName = appName.currentValue;
@@ -175,9 +175,7 @@ describe('TaskListCloudComponent', () => {
 
     it('should emit row click event', (done) => {
         let row = new ObjectDataRow({
-            entry: {
-                id: '999'
-            }
+            id: '999'
         });
         let rowEvent = new DataRowEvent(row, null);
         component.rowClick.subscribe((taskId) => {
