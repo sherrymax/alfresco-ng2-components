@@ -23,7 +23,8 @@ import {
     RequestFacetFields,
     RequestFacetField,
     RequestSortDefinitionInner,
-    ResultSetPaging
+    ResultSetPaging,
+    RequestHighlight
 } from '@alfresco/js-api';
 import { SearchCategory } from './search-category.interface';
 import { FilterQuery } from './filter-query.interface';
@@ -48,6 +49,7 @@ export class SearchQueryBuilderService {
     queryFragments: { [id: string]: string } = {};
     filterQueries: FilterQuery[] = [];
     paging: { maxItems?: number; skipCount?: number } = null;
+    highlight: RequestHighlight = null;
     sorting: Array<SearchSortingDefinition> = [];
 
     protected userFacetBuckets: { [key: string]: Array<FacetFieldBucket> } = {};
@@ -225,7 +227,8 @@ export class SearchQueryBuilderService {
                 filterQueries: this.filterQueries,
                 facetQueries: this.facetQueries,
                 facetFields: this.facetFields,
-                sort: this.sort
+                sort: this.sort,
+                highlight: this.highlight
             };
 
             result['facetFormat'] = 'V2';
