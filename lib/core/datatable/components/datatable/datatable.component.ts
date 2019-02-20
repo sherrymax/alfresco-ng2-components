@@ -594,10 +594,6 @@ export class DataTableComponent implements AfterContentInit, OnChanges, DoCheck,
         return `${row.cssClass} ${this.rowStyleClass}`;
     }
 
-    getFilename(row: DataRow): string {
-        return row.getValue('name');
-    }
-
     getSortingKey(): string {
         if (this.data.getSorting()) {
             return this.data.getSorting().key;
