@@ -129,20 +129,20 @@ describe('ProcessListCloudComponent', () => {
             expect(res).toBeDefined();
             expect(component.rows).toBeDefined();
             expect(component.rows.length).toEqual(3);
-            expect(component.rows[0]['appName']).toBe('easy-peasy-japanesey');
-            expect(component.rows[0]['appVersion']).toBe('');
-            expect(component.rows[0]['id']).toBe('69eddfa7-d781-11e8-ae24-0a58646001fa');
-            expect(component.rows[0]['name']).toEqual('starring');
-            expect(component.rows[0]['description']).toBeNull();
-            expect(component.rows[0]['processDefinitionId']).toBe('BasicProcess:1:d05062f1-c6fb-11e8-ae24-0a58646001fa');
-            expect(component.rows[0]['processDefinitionKey']).toBe('BasicProcess');
-            expect(component.rows[0]['initiator']).toBe('devopsuser');
-            expect(component.rows[0]['startDate']).toBe(1540381146275);
-            expect(component.rows[0]['businessKey']).toBe('MyBusinessKey');
-            expect(component.rows[0]['status']).toBe('RUNNING');
-            expect(component.rows[0]['lastModified']).toBe(1540381146276);
-            expect(component.rows[0]['lastModifiedTo']).toBeNull();
-            expect(component.rows[0]['lastModifiedFrom']).toBeNull();
+            expect(component.rows[0].entry['appName']).toBe('easy-peasy-japanesey');
+            expect(component.rows[0].entry['appVersion']).toBe('');
+            expect(component.rows[0].entry['id']).toBe('69eddfa7-d781-11e8-ae24-0a58646001fa');
+            expect(component.rows[0].entry['name']).toEqual('starring');
+            expect(component.rows[0].entry['description']).toBeNull();
+            expect(component.rows[0].entry['processDefinitionId']).toBe('BasicProcess:1:d05062f1-c6fb-11e8-ae24-0a58646001fa');
+            expect(component.rows[0].entry['processDefinitionKey']).toBe('BasicProcess');
+            expect(component.rows[0].entry['initiator']).toBe('devopsuser');
+            expect(component.rows[0].entry['startDate']).toBe(1540381146275);
+            expect(component.rows[0].entry['businessKey']).toBe('MyBusinessKey');
+            expect(component.rows[0].entry['status']).toBe('RUNNING');
+            expect(component.rows[0].entry['lastModified']).toBe(1540381146276);
+            expect(component.rows[0].entry['lastModifiedTo']).toBeNull();
+            expect(component.rows[0].entry['lastModifiedFrom']).toBeNull();
 
             done();
         });
@@ -165,7 +165,9 @@ describe('ProcessListCloudComponent', () => {
 
     it('should emit row click event', (done) => {
         let row = new ObjectDataRow({
+            entry: {
                 id: '999'
+            }
         });
         let rowEvent = new DataRowEvent(row, null);
         component.rowClick.subscribe((taskId) => {
