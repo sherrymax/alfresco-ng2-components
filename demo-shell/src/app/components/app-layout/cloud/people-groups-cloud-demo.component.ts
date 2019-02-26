@@ -28,7 +28,7 @@ import { MatRadioChange, MatCheckboxChange } from '@angular/material';
 export class PeopleGroupCloudDemoComponent {
 
     DEFAULT_GROUP_PLACEHOLDER: string = `[{"id": "1", "name":"activitiUserGroup"}]`;
-    DEFAULT_PEOPLE_PLACEHOLDER: string = `[{"id": "1", email": "admin.adf@alfresco.com", "firstName":"Administrator", "lastName": "ADF", "username": "admin.adf"}]`;
+    DEFAULT_PEOPLE_PLACEHOLDER: string = `[{"id": "1", email": "user@user.com", "firstName":"user", "lastName": "last name", "username": "usernmae"}]`;
 
     peopleMode: string = PeopleCloudComponent.MODE_SINGLE;
     preSelectUsers: string[] = [];
